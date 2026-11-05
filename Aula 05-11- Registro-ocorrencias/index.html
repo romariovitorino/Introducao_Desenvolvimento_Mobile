@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102b4e">
+  <title>Registro de Ocorrências</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <div>
+      <p class="rotulo">Aplicação móvel no navegador</p>
+      <h1>Registro de Ocorrências</h1>
+    </div>
+    <p id="status-conexao" class="status" role="status"></p>
+  </header>
+
+  <main class="conteudo">
+    <section class="painel" aria-labelledby="titulo-formulario">
+      <h2 id="titulo-formulario">Nova ocorrência</h2>
+      <p>Descreva a situação. A localização e a foto são opcionais.</p>
+
+      <form id="form-ocorrencia">
+        <label for="titulo">Título</label>
+        <input id="titulo" name="titulo" maxlength="70" required>
+
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" name="descricao" rows="4"
+          maxlength="300" required></textarea>
+
+        <div class="grupo-acao">
+          <button id="botao-localizar" type="button">
+            Usar minha localização
+          </button>
+          <p id="resultado-localizacao" role="status">
+            Localização ainda não adicionada.
+          </p>
+        </div>
+
+        <label for="foto">Foto da ocorrência</label>
+        <input id="foto" name="foto" type="file"
+          accept="image/*" capture="environment">
+        <img id="preview" class="preview"
+          alt="Pré-visualização da foto selecionada" hidden>
+
+        <button class="primario" type="submit">Salvar ocorrência</button>
+      </form>
+      <p id="mensagem" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="painel" aria-labelledby="titulo-lista">
+      <div class="cabecalho-lista">
+        <div>
+          <h2 id="titulo-lista">Ocorrências salvas</h2>
+          <p id="resumo"></p>
+        </div>
+        <button id="limpar-registros" class="secundario" type="button">
+          Limpar registros
+        </button>
+      </div>
+      <ul id="lista-ocorrencias" class="lista"></ul>
+    </section>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
